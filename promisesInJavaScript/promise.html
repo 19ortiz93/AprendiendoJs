@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises in JavaScript</title>
+</head>
+<body>
+    <script>
+        //Promises
+        /*let p = new Promise(function(resolve, reject) {
+            //let suma = 2 + 6;
+            let suma = 2 + 20;
+            if(suma == 8) {
+                resolve("correcto");
+            }else{
+                reject("Error");
+            }
+
+        })
+        
+        p.then(function(mensaje) {
+            console.log(mensaje);
+        }).catch(function(error) {
+            console.log(error);
+        })
+        
+        function miPromesa() {
+            return new Promise(function(resolve, reject) {
+                let suma = 2 + 6;
+                //let suma = 2 + 20;
+                if(suma == 8) {
+                    resolve("correcto");
+                }else{
+                    reject("Error");
+                }
+
+            })
+        }
+        
+        miPromesa().then(function(mensaje) {
+            console.log(mensaje);
+        }).catch(function(error) {
+            console.log(error);
+        })*/
+
+        function mostrarPhone(mensaje) {
+            return new Promise(function(resolve, reject) {
+                if(mensaje){
+                    resolve("obtuviste un " + mensaje.brand);
+                }else{
+                    reject("Error")
+                }
+            });
+        }
+
+        function miPromesa() {
+            return new Promise(function(resolve, reject) {
+                let isHomeworkDone = true;
+                //let isHomeworkDone = false;
+                if(isHomeworkDone === true) {
+                    let phone = {
+                        color: "negro",
+                        brand: "iPhone"
+                    }
+                    resolve(phone);
+                }else{
+                    reject("No obtuviste un iPhone");
+                }
+
+            })
+        }
+
+        miPromesa().then(function(mensaje) {
+            //console.log(mensaje);
+            return mostrarPhone(mensaje);
+        }).then(function(respuesta) {
+            console.log(respuesta);
+        }).catch(function(error) {
+            console.log(error);
+        })
+    </script>
+</body>
+</html>
